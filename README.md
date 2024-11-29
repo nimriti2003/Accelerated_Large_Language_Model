@@ -54,11 +54,14 @@ To run the system, install the following dependencies:
 
 ```bash
 pip install transformers scikit-learn pandas skfuzzy deap
-**### Setup**
+```
+
+### Setup
 Clone this repository:
 ```bash
 git clone https://github.com/yourusername/Accelerated_Large_Language_Model.git
 cd accelerated-llm
+```
 Set up the data directory with labeled query data for training the Re-Router and datasets for the Sub-LLMs.
 Run the training scripts for each component.
 
@@ -73,17 +76,23 @@ Each Sub-LLM is fine-tuned on task-specific datasets. These models (e.g., BART f
 The Fuzzy Logic Controller is trained with predefined rules and fuzzy membership functions, assessing query ambiguity and confidence.
 4. Evolutionary Neural Network Training
 Evolutionary algorithms are used to optimize the architecture of a neural network for query domain classification.
-Query Handling Flow
+
+
+### Query Handling Flow
 The system processes incoming queries through the following pipeline:
 
 Domain Classification: The query is passed to the Re-Router to predict its domain (e.g., summarization, translation).
 Certainty Evaluation: The Fuzzy Logic Controller evaluates the confidence and ambiguity of the prediction.
 Task Routing: The query is routed to the appropriate Sub-LLM (Summarization, Translation, Text Generation, or QA).
 Response Generation: The Sub-LLM processes the query and returns a generated response.
-Evaluation
-1. Re-Router
-The accuracy and classification reports are used to evaluate the model’s performance in domain classification.
-2. Sub-LLMs
-Task-specific models are evaluated using metrics like BLEU score (for translation), ROUGE score (for summarization), and accuracy for QA.
-3. Fuzzy Logic
-The Fuzzy Logic Controller is evaluated based on its ability to correctly classify queries as "certain" or "ambiguous."
+
+
+**### Evaluation**
+**Re-router Evaluation:**
+
+![image](https://github.com/user-attachments/assets/07542bbc-b0e4-497f-95fe-25823217c8ed)
+
+**Sub llm Evaluation:**
+
+![image](https://github.com/user-attachments/assets/356772d5-5e3a-4744-807f-bb05759b470f)
+
